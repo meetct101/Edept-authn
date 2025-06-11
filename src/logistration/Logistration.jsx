@@ -103,7 +103,7 @@ const Logistration = (props) => {
           ? (
             <>
               {institutionLogin && (
-                <Tabs defaultActiveKey="" id="controlled-tab" onSelect={handleInstitutionLogin}>
+                <Tabs defaultActiveKey="" style={{ display: 'none' }}  id="controlled-tab" onSelect={handleInstitutionLogin}>
                   <Tab title={tabTitle} eventKey={LOGIN_PAGE} />
                 </Tabs>
               )}
@@ -119,7 +119,7 @@ const Logistration = (props) => {
             <div>
               {institutionLogin
                 ? (
-                  <Tabs defaultActiveKey="" id="controlled-tab" onSelect={handleInstitutionLogin}>
+                  <Tabs defaultActiveKey="" style={{ display: 'none' }}  id="controlled-tab" onSelect={handleInstitutionLogin}>
                     <Tab title={tabTitle} eventKey={selectedPage === LOGIN_PAGE ? LOGIN_PAGE : REGISTER_PAGE} />
                   </Tabs>
                 )

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { getConfig } from '@edx/frontend-platform';
 import { useIntl } from '@edx/frontend-platform/i18n';
@@ -21,6 +21,14 @@ const SocialAuthProviders = (props) => {
     window.location.href = getConfig().LMS_BASE_URL + url;
   }
 
+  useEffect(() => {
+      // You can change this to match the provider you want to trigger
+      const firstProviderButton = document.querySelector('.btn-social');
+      if (firstProviderButton) {
+        firstProviderButton.click();
+      }
+    }, []);
+
   const socialAuth = socialAuthProviders.map((provider, index) => (
     <button
       id={provider.id}
@@ -29,6 +37,7 @@ const SocialAuthProviders = (props) => {
       className={`btn-social btn-${provider.id} ${index % 2 === 0 ? 'mr-3' : ''}`}
       data-provider-url={referrer === LOGIN_PAGE ? provider.loginUrl : provider.registerUrl}
       onClick={handleSubmit}
+      style={{ display: 'none' }}
     >
       {provider.iconImage ? (
         <div aria-hidden="true">
